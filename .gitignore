@@ -16,4 +16,7 @@ tmp
 _yardoc
 doc/
 history_daily_data/*.txt
+resource/*.exe
+resource/*.rdb
+
 
