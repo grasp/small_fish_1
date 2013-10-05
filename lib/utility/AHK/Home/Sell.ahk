@@ -44,7 +44,7 @@ sleep 1000
 ControlGetText,totalnumber,Edit10,网上股票交易系统5.0
 
 
-if ((stock_code != %1%) or (price <> %2%) or (totalnumber != %totalnumber%))
+if ((stock_code != %1%) or (price != %2%) or (totalnumber != %totalnumber%))
 {
    ControlSend, Button26, {Enter},网上股票交易系统5.0
 }

@@ -67,3 +67,11 @@ Else
 	exit,1
 }
 
+WinWait, ahk_class #32770, , 5
+
+;sleep 1000
+ControlSend, Button1, {Enter},ahk_class #32770
+WinWait, ahk_class #32770, , 5
+ControlSend, Static1, {Enter},ahk_class #32770
+
+exit,0

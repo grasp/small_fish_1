@@ -45,6 +45,8 @@ def back_test(backdays,policy,symbol)
   data_hash = yahoo_get_raw_data_from_file(symbol)
   data_array=data_hash.to_a
 
+  return [symbol,0,nil] if data_array.size ==0
+
   latest_price=data_array[0][1][0]
   #get_macd_array(data_hash,100,60)
   macd_array=get_back_days_macd_array(back_days,data_hash,symbol)
@@ -100,21 +102,23 @@ if $0==__FILE__
     start = Time.now
     win_file=File.new("win_list.txt","w")
     count =0
-    $all_stock_list.each do |symbol,name|
+  $all_stock_list.each do |symbol,name|
 	# result=back_test(60,"","000031.sz")
 	count+=1
-if count >600 && count <620
- puts count
-	 result=back_test(200,"",symbol)
-
-    percent=((result[1]/result[2])*100).to_f.round(2).to_f
-	 unless result[2]==0
+#if count >600 && count <620
+  puts count.to_s + "_" + symbol
+	result=back_test(80,"",symbol)
+ # result=back_test(60, " ","002318.sz")
+   next if (result[2]==0 || result[1].nil? || result[2].nil?)
+   
+  	 unless (result[2]==0 || result[1].nil? ||result[2].nil?)
+      percent=((result[1]/result[2])*100).to_f.round(2)
 	   win_array<<  percent 
-
 	   win_hash[symbol]=percent
+      win_file << result[0].to_s+ " " + ((result[1]/result[2])*100).to_f.round(2).to_s+"\r\n"
       end
-	 win_file << result[0].to_s+ " " + ((result[1]/result[2])*100).to_f.round(2).to_s+"\r\n"
-	end
+	
+	#end
 end
 	win_file.close
 
