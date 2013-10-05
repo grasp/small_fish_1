@@ -14,16 +14,20 @@ def get_macd_array(back_day,data_hash,array_size,duration)
   
   data_array = data_hash.to_a
   average_price_array=Array.new
-
+  return [] if data_array.size ==0
   sum=0.0
   average_price=0.0
+  last_price=[[0],[0],[0],[0],[0]]
   #把最新日期改为，后退的几天，这样可以知道后退天的MACD盘口信息
   back_day.upto(array_size+back_day-1).each do |j|
   sum=0.0
   average_price=0.0
   (0).upto(duration-1).each do |i|
+    data_array[i+j] = last_price if data_array[i+j].nil? #if no data coming, then use the last one
+
   	sum+=data_array[i+j][1][3].to_f.round(2)
   	average_price=(sum/duration).round(2) #注意，我们的均价为算数平均值，这个暂时这样了
+    last_price = data_array[i+j]
     end
   average_price_array<<average_price
 end
