@@ -16,8 +16,10 @@ def yahoo_get_raw_data_from_file(symbol)
    
  	daily_data = line.split(",")
  	next if daily_data[2].nil?
+
  	data_hash[daily_data[1]]=[daily_data[2],daily_data[3],daily_data[4],daily_data[5],daily_data[6],daily_data[7].strip]
  	 #$redis.hset("k_raw_d:#{symbol}",daily_data[1],[daily_data[2],daily_data[3],daily_data[4],daily_data[5],daily_data[6],daily_data[7].strip].to_json)
+
  end
 data_hash
 end

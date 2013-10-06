@@ -1,0 +1,14 @@
+start_date  2013-07-05
+policy_buy  [[{"5_days_cross_10_days"=>true}], []],win_percent:5.141%
+back_days  60
+buy_signal  1
+buy_action  1
+sell_signal  58
+sell_action  1
+keep_times  3
+op  buy_2013-07-09 9.92 volume up:false sell_2013-07-12 10.43 keep:3 days,win 5.141%prevent_lost_signal=true
+
+keep_percent  5.0%
+win_percent  5.141
+total-win  0.5099999999999998 _win percent=5.141%,
+

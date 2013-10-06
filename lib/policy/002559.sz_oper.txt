@@ -1,0 +1,18 @@
+start_date  2013-07-05
+policy_buy  [[{"5_days_cross_10_days"=>true}], []],win_percent:11.669%
+back_days  60
+buy_signal  38
+buy_action  5
+sell_signal  20
+sell_action  5
+keep_times  37
+op  buy_2013-07-17 8.43 volume up:false sell_2013-08-01 8.18 keep:11 days,win -2.966%prevent_lost_signal=false
+buy_2013-08-07 8.78 volume up:true sell_2013-08-13 9.33 keep:4 days,win 6.264%prevent_lost_signal=true
+buy_2013-08-14 9.25 volume up:true sell_2013-08-21 10.1 keep:5 days,win 9.189%prevent_lost_signal=true
+buy_2013-08-22 9.81 volume up:true sell_2013-09-04 9.61 keep:9 days,win -2.039%prevent_lost_signal=false
+buy_2013-09-12 9.83 volume up:false sell_2013-09-25 9.95 keep:8 days,win 1.221%prevent_lost_signal=false
+
+keep_percent  61.66666666666667%
+win_percent  1.221
+total-win  1.0699999999999985 _win percent=11.669%,********************
+

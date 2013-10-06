@@ -105,14 +105,16 @@ if macd_signal["5_days_cross_10_days"] ==true && last_macd_signal["5_days_down_1
     end #end of if last_sell
   end #end of if macd_signal....
 
+
+  if last_buy_flag==true && last_sell_flag ==false
   #这个地方是卖点信号
-   if macd_signal["5_days_down_10_days"]==true 
+  #止损位10%
+  if macd_signal["5_days_down_10_days"]==true || ((last_buy_price.to_f-data_array[back_days][1][0].to_f)/last_buy_price.to_f)<=-0.08
  # if (macd_signal["10_days_down_10_days"]==true && last_macd_signal["5_days_down_10_days"] ==false)
   # if macd_signal["5_days_down_20_days"]==true && last_macd_signal["5_days_down_20_days"] ==false
   #卖出操作
   #统计持仓时间，何时卖出
  # puts "sell signal"
-  if last_buy_flag==true && last_sell_flag ==false
      # puts "sell  now!"
      # oper_hash[symbol]=["sell",data_array[back_days][0],data_array[back_days][1][0]]
       oper_record_file << ["sell",data_array[back_days][0],data_array[back_days][1][0]].to_s
@@ -121,8 +123,9 @@ if macd_signal["5_days_cross_10_days"] ==true && last_macd_signal["5_days_down_1
   		last_buy_flag=false
   		last_sell_flag=true
      # puts "last_buy_flag=#{last_buy_flag},last_sell_flag=#{last_sell_flag}"
-  end# end of if last_buy_flag
   end#end of if macd_signal
+  end# end of if last_buy_flag
+
   #记录上次的数据，用于判断
   last_macd_signal=macd_signal
 
@@ -176,7 +179,7 @@ end
 
 
 ###############################################################
-##   选取开始和结束的股票样本，可以控制测试的时间，最长的200天全部测试大约需要40分钟
+##   选取开始和结束的股票样本，可以控制测试的时间，200天全部测试大约需要40分钟
 ##
 def back_test_multi_stock(start,stop)
  
@@ -193,7 +196,7 @@ def back_test_multi_stock(start,stop)
    if (count >= start && count < stop)
    puts count.to_s + "_" + symbol
 
-   result=back_test_one_stock(200,symbol,0)
+   result=back_test_one_stock(120,symbol,0)
 
    next if (result[2]==0 || result[1].nil? || result[2].nil?)   
    percent=((result[1]/result[2])*100).to_f.round(2)
@@ -224,5 +227,5 @@ if $0==__FILE__
 #test_win_array=[-200,-100,-90,-80,-70,-60,-50,-40,-30,-20,-10,-5,-3,-2,-1,0,1,2,3,10,20,30,40,50,60,70,80,90,100,200,300]
 #win_array_statistic(test_win_array)
 
-back_test_multi_stock(500,700)
+back_test_multi_stock(600,650)
 end

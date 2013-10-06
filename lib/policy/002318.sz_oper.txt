@@ -1,0 +1,9 @@
+policy_buy  [[{"5_days_cross_10_days"=>true}], []],win_percent:0.0%
+back_days  60
+buy_signal  0
+buy_action  0
+sell_signal  0
+sell_action  0
+keep_times  0
+total-win  0 _win percent=0.0%,:(:(:(:(:(:(:(:(:(:(
+
