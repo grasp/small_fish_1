@@ -16,4 +16,6 @@ test/tmp
 test/version_tmp
 tmp
 resources/history_daily_data/*.txt
+resources/snalysis_result/*.txt
 resources/redis-win32/*.rdb
+

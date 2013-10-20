@@ -1,0 +1,43 @@
+app_name: "small_fish"
+
+stock_list_path: "resources/stock_list"
+stock_list_name: "stock_table_2013_10_01.txt"
+
+macd_1_day: 1
+macd_2_day: 2
+macd_3_day: 3
+macd_4_day: 4
+macd_5_day: 5
+macd_10_day: 10
+macd_20_day: 20
+macd_30_day: 30
+macd_60_day: 60
+macd_100_day: 100
+macd_120_day: 120
+macd_120_day: 200
+
+price_1_day: 1
+price_2_day: 2
+price_3_day: 3
+price_4_day: 4
+price_5_day: 5
+price_10_day: 10
+price_20_day: 20
+price_30_day: 30
+price_60_day: 60
+price_100_day: 100
+price_120_day: 120
+price_200_day: 200
+
+volume_1_day: 1
+volume_2_day: 2
+volume_3_day: 3
+volume_4_day: 4
+volume_5_day: 5
+volume_10_day: 10
+volume_20_day: 20
+volume_30_day: 30
+volume_60_day: 60
+volume_100_day: 100
+volume_120_day: 120
+volume_120_day: 200

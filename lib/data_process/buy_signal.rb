@@ -1,2 +1,0 @@
-def get_buy_signal
-end
