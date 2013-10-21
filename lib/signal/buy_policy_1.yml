@@ -1,0 +1,5 @@
+price:
+  price_open_bigger_close: true
+  
+macd:
+  macd5_bigger_macd_10: true

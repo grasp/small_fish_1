@@ -1,6 +1,7 @@
 
 require File.expand_path("../macd_history.rb",__FILE__)
 require File.expand_path("../low_high_price_history.rb",__FILE__)
+require File.expand_path("../volume_history.rb",__FILE__)
 
 def save_analysis_result(symbol)
 
@@ -16,10 +17,18 @@ def save_analysis_result(symbol)
     low_price_hash=price_result[0]
     high_price_hash=price_result[1]
 
+    volume_hash=volume_analysis(raw_hash)
+
 
     analysis_file=File.new(file_path,"w+")
     result_macd_hash.each do |date,macd_array|
-    	analysis_file<<date.to_s+"#"+price_hash[date].to_s+"#"+macd_array.to_s+"#"+low_price_hash[date].to_s+"#"+high_price_hash[date].to_s+"\n"
+        analysis_file<<date.to_s
+        analysis_file<<"#"+price_hash[date].to_s
+        analysis_file<<"#"+macd_array.to_s
+        analysis_file<<"#"+low_price_hash[date].to_s
+        analysis_file<<"#"+high_price_hash[date].to_s
+        analysis_file<<"#"+volume_hash[date].to_s
+        analysis_file<<"\n"
     end
     analysis_file.close
 end
